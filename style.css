@@ -1,0 +1,214 @@
+/* SmartScanner · site public (pages légales + support).
+   Palette reprise du logo : navy du bac, vert de la flèche. */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #16243b;
+  --ink-soft: #4a5a70;
+  --ink-faint: #7d8ca0;
+  --paper: #f8fafb;
+  --surface: #ffffff;
+  --green: #10b981;
+  --green-deep: #0b7f5a;
+  --rule: #e3e9f0;
+  --measure: 46rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.wrap {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---- En-tête marque ---- */
+
+.masthead {
+  padding: 3.5rem 0 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.brand svg { width: 44px; height: 44px; flex: none; }
+
+.brand-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ---- Intercalaires (onglets), clin d'oeil aux intercalaires de l'app ---- */
+
+.tabs {
+  display: flex;
+  gap: 0.35rem;
+  margin: 2.5rem 0 0;
+  border-bottom: 2px solid var(--ink);
+  padding-left: 0.25rem;
+}
+
+.tab {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink-soft);
+  padding: 0.5rem 0.9rem;
+  border: 2px solid transparent;
+  border-bottom: none;
+  border-radius: 7px 7px 0 0;
+  transform: translateY(2px);
+}
+
+.tab:hover { color: var(--ink); background: #eef2f6; }
+
+.tab[aria-current='page'] {
+  color: var(--ink);
+  background: var(--surface);
+  border-color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---- Contenu ---- */
+
+main { padding: 2.75rem 0 4rem; }
+
+h1 {
+  font-size: clamp(1.85rem, 5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin: 0 0 0.6rem;
+}
+
+.updated {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  margin: 0 0 2.5rem;
+}
+
+h2 {
+  font-size: 1.12rem;
+  letter-spacing: -0.01em;
+  margin: 2.75rem 0 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+main > .wrap > section:first-of-type h2 { border-top: none; padding-top: 0; }
+
+p { margin: 0 0 1rem; color: var(--ink-soft); }
+
+ul { margin: 0 0 1rem; padding-left: 1.15rem; }
+
+li { margin-bottom: 0.4rem; color: var(--ink-soft); }
+
+li::marker { color: var(--green); }
+
+strong { color: var(--ink); font-weight: 600; }
+
+a { color: var(--green-deep); text-underline-offset: 2px; }
+
+/* ---- Bloc mis en avant ---- */
+
+.callout {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--green);
+  border-radius: 0 10px 10px 0;
+  padding: 1.15rem 1.35rem;
+  margin: 1.5rem 0;
+}
+
+.callout p:last-child { margin-bottom: 0; }
+
+.lede {
+  font-size: 1.12rem;
+  color: var(--ink);
+}
+
+/* ---- Accueil ---- */
+
+.hero-tagline {
+  font-size: 1.2rem;
+  color: var(--ink-soft);
+  max-width: 34rem;
+  margin: 0 0 2rem;
+}
+
+.cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin: 1.75rem 0;
+}
+
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.card:hover { border-color: var(--green); transform: translateY(-2px); }
+
+.card-label {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+}
+
+.card-title { font-weight: 600; margin: 0.35rem 0 0.25rem; }
+
+.card-desc { font-size: 0.92rem; color: var(--ink-faint); margin: 0; }
+
+.mail {
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+/* ---- Pied ---- */
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2rem 0 3rem;
+  font-size: 0.86rem;
+  color: var(--ink-faint);
+}
+
+footer a { color: var(--ink-soft); }
+
+@media (max-width: 480px) {
+  body { font-size: 16px; }
+  .tabs { gap: 0.15rem; }
+  .tab { padding: 0.45rem 0.6rem; font-size: 0.67rem; }
+}
